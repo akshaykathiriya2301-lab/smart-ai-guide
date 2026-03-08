@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Post Details - Smart AI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html">AI Tools</a>
+        <a href="online-earning.html">Online Earning</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>BLOG POST</p>
+        <h2 id="postTitle">Blog Post Title</h2>
+        <div class="sub" id="postCategory">Category</div>
+      </div>
+
+      <div class="contact-box">
+        <h3 style="margin-bottom:15px;">Overview</h3>
+        <p id="postDescription" style="color:#94a3b8; margin-bottom:20px;">
+          Blog post content will appear here.
+        </p>
+
+        <h3 style="margin-bottom:15px;">Main Points</h3>
+        <ul id="postPoints" style="color:#94a3b8; margin-left:20px; margin-bottom:25px;"></ul>
+
+        <div class="btn-group">
+          <a href="blog.html" class="btn btn-secondary">Back to Blog</a>
+          <a href="contact.html" class="btn btn-primary">Get Help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="blog.html">Blog</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const postData = {
+      "free-ai-tools": {
+        title: "Top Free AI Tools for Beginners",
+        category: "AI Tools",
+        description: "This guide helps beginners start with useful AI tools for writing, design, research, and productivity.",
+        points: [
+          "Start with simple tools first",
+          "Use AI for writing and summaries",
+          "Explore design tools like Canva AI",
+          "Try productivity tools for planning",
+          "Use tools regularly to improve speed"
+        ]
+      },
+      "start-earning-online": {
+        title: "How to Start Earning Online",
+        category: "Online Earning",
+        description: "A beginner-friendly guide to building digital skills and starting small online income streams.",
+        points: [
+          "Choose one earning method",
+          "Practice one valuable skill",
+          "Create sample work",
+          "Start posting or applying online",
+          "Improve week by week"
+        ]
+      },
+      "freelancing-skills": {
+        title: "Best Skills for Freelancing",
+        category: "Freelancing",
+        description: "These skills can help beginners start freelance work and attract clients online.",
+        points: [
+          "Content writing",
+          "Graphic design",
+          "Video editing",
+          "Website building",
+          "AI content support"
+        ]
+      },
+      "website-money-ideas": {
+        title: "Website Ideas That Can Make Money",
+        category: "Startup",
+        description: "Learn which website ideas can later become income sources through content, services, and products.",
+        points: [
+          "AI tools website",
+          "Online earning guides",
+          "Study resources platform",
+          "Freelancing portfolio site",
+          "Digital product store"
+        ]
+      },
+      "student-ai-workflow": {
+        title: "Best AI Workflow for Students",
+        category: "Students",
+        description: "Students can use AI to study better, summarize notes, and save time.",
+        points: [
+          "Use AI for note summaries",
+          "Ask for topic explanations",
+          "Generate assignment ideas",
+          "Create study plans",
+          "Review concepts faster"
+        ]
+      },
+      "personal-brand": {
+        title: "How to Build a Personal Brand",
+        category: "Growth",
+        description: "A personal brand grows when you share useful content consistently and build trust online.",
+        points: [
+          "Choose one niche",
+          "Post useful content regularly",
+          "Stay consistent",
+          "Help your audience",
+          "Improve your online identity"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const postKey = params.get("post");
+
+    const postTitle = document.getElementById("postTitle");
+    const postCategory = document.getElementById("postCategory");
+    const postDescription = document.getElementById("postDescription");
+    const postPoints = document.getElementById("postPoints");
+
+    if (postKey && postData[postKey]) {
+      const post = postData[postKey];
+
+      postTitle.textContent = post.title;
+      postCategory.textContent = post.category;
+      postDescription.textContent = post.description;
+
+      post.points.forEach(point => {
+        const li = document.createElement("li");
+        li.textContent = point;
+        li.style.marginBottom = "8px";
+        postPoints.appendChild(li);
+      });
+    } else {
+      postTitle.textContent = "Post Not Found";
+      postCategory.textContent = "Unknown Category";
+      postDescription.textContent = "No blog post details available.";
+    }
+  </script>
+
+</body>
+</html>

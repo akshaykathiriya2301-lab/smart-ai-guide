@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earning Details - Smart AI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html">AI Tools</a>
+        <a href="online-earning.html" class="active">Online Earning</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>EARNING DETAILS</p>
+        <h2 id="methodTitle">Online Earning Method</h2>
+        <div class="sub" id="methodCategory">Category</div>
+      </div>
+
+      <div class="contact-box">
+        <h3 style="margin-bottom:15px;">About this method</h3>
+        <p id="methodDescription" style="color:#94a3b8; margin-bottom:20px;">
+          Method description will appear here.
+        </p>
+
+        <h3 style="margin-bottom:15px;">How to start</h3>
+        <ul id="methodSteps" style="color:#94a3b8; margin-left:20px; margin-bottom:25px;"></ul>
+
+        <h3 style="margin-bottom:15px;">Why this method is useful</h3>
+        <p id="methodWhy" style="color:#94a3b8; margin-bottom:25px;">
+          Method benefits will appear here.
+        </p>
+
+        <div class="btn-group">
+          <a href="online-earning.html" class="btn btn-secondary">Back to Online Earning</a>
+          <a href="contact.html" class="btn btn-primary">Get Help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="online-earning.html">Online Earning</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const methodData = {
+      freelancing: {
+        title: "Freelancing",
+        category: "Service Based Income",
+        description: "Freelancing means offering your skills like writing, design, coding, editing, or digital support to clients online.",
+        why: "It is one of the fastest ways to start earning online because you can directly sell your skill.",
+        steps: [
+          "Choose one skill",
+          "Practice with sample work",
+          "Make a small portfolio",
+          "Create accounts on freelance platforms",
+          "Apply for beginner projects"
+        ]
+      },
+      affiliate: {
+        title: "Affiliate Marketing",
+        category: "Commission Based Income",
+        description: "Affiliate marketing means promoting useful products or tools and earning commission when someone buys through your link.",
+        why: "It can grow into passive income if you have traffic, audience, or content.",
+        steps: [
+          "Choose a niche",
+          "Select products to promote",
+          "Get affiliate links",
+          "Create content around products",
+          "Share links through website or social media"
+        ]
+      },
+      "digital-products": {
+        title: "Digital Products",
+        category: "Product Based Income",
+        description: "Digital products include ebooks, templates, prompt packs, notes, and downloadable learning resources.",
+        why: "You can create once and sell many times, which makes it scalable.",
+        steps: [
+          "Choose one product idea",
+          "Create useful digital file",
+          "Design it properly",
+          "Upload to website or platform",
+          "Promote it online"
+        ]
+      },
+      "ai-services": {
+        title: "AI Services",
+        category: "AI Powered Income",
+        description: "AI services include content writing, captions, prompts, ideas, social media content, and business support using AI tools.",
+        why: "It helps beginners work faster and offer more value with less time.",
+        steps: [
+          "Pick one service",
+          "Use AI tools to improve speed",
+          "Make sample client work",
+          "Show portfolio online",
+          "Start taking orders"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const methodKey = params.get("method");
+
+    const methodTitle = document.getElementById("methodTitle");
+    const methodCategory = document.getElementById("methodCategory");
+    const methodDescription = document.getElementById("methodDescription");
+    const methodSteps = document.getElementById("methodSteps");
+    const methodWhy = document.getElementById("methodWhy");
+
+    if (methodKey && methodData[methodKey]) {
+      const method = methodData[methodKey];
+
+      methodTitle.textContent = method.title;
+      methodCategory.textContent = method.category;
+      methodDescription.textContent = method.description;
+      methodWhy.textContent = method.why;
+
+      method.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.textContent = step;
+        li.style.marginBottom = "8px";
+        methodSteps.appendChild(li);
+      });
+    } else {
+      methodTitle.textContent = "Method Not Found";
+      methodCategory.textContent = "Unknown Category";
+      methodDescription.textContent = "No details available for this earning method.";
+      methodWhy.textContent = "Please go back and choose a valid method.";
+    }
+  </script>
+
+</body>
+</html>

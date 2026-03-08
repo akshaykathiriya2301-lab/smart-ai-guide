@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide Details - Smart AI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html" class="active">AI Tools</a>
+        <a href="online-earning.html">Online Earning</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>GUIDE DETAILS</p>
+        <h2 id="guideTitle">Guide Title</h2>
+        <div class="sub" id="guideCategory">Guide Category</div>
+      </div>
+
+      <div class="contact-box">
+        <h3 style="margin-bottom:15px;">Guide Overview</h3>
+        <p id="guideDescription" style="color:#94a3b8; margin-bottom:20px;">
+          Guide description will appear here.
+        </p>
+
+        <h3 style="margin-bottom:15px;">Steps</h3>
+        <ul id="guideSteps" style="color:#94a3b8; margin-left:20px; margin-bottom:25px;"></ul>
+
+        <div class="btn-group">
+          <a href="ai-tools.html" class="btn btn-secondary">Back to AI Tools</a>
+          <a href="blog.html" class="btn btn-primary">Open Blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="ai-tools.html">AI Tools</a> |
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const guideData = {
+      chatgpt: {
+        title: "ChatGPT Guide",
+        category: "Writing & Ideas",
+        description: "Learn how to use ChatGPT for writing, study help, brainstorming, and daily productivity.",
+        steps: [
+          "Open ChatGPT",
+          "Write a clear prompt",
+          "Ask for summary or explanation",
+          "Improve the answer with follow-up prompts",
+          "Use results for study, content, or ideas"
+        ]
+      },
+      canva: {
+        title: "Canva AI Guide",
+        category: "Design",
+        description: "Learn how to use Canva AI for social media posts, thumbnails, presentations, and visuals.",
+        steps: [
+          "Open Canva",
+          "Choose design type",
+          "Use AI tools for text or image help",
+          "Edit colors, fonts, and layout",
+          "Download final design"
+        ]
+      },
+      gemini: {
+        title: "Gemini Guide",
+        category: "Research",
+        description: "Learn how to use Gemini for research, topic understanding, and quick idea generation.",
+        steps: [
+          "Open Gemini",
+          "Ask a clear topic question",
+          "Request summary or explanation",
+          "Refine with follow-up questions",
+          "Use output for project or learning"
+        ]
+      },
+      copilot: {
+        title: "GitHub Copilot Guide",
+        category: "Coding",
+        description: "Learn how to use GitHub Copilot for coding suggestions and faster programming work.",
+        steps: [
+          "Install Copilot in editor",
+          "Open your code file",
+          "Start typing code",
+          "Accept helpful suggestions",
+          "Test and improve the result"
+        ]
+      },
+      notion: {
+        title: "Notion AI Guide",
+        category: "Productivity",
+        description: "Learn how to use Notion AI for notes, summaries, planning, and workflow management.",
+        steps: [
+          "Open Notion workspace",
+          "Create a page or note",
+          "Use AI for summary or writing",
+          "Organize tasks and ideas",
+          "Track daily workflow"
+        ]
+      },
+      grammarly: {
+        title: "Grammarly Guide",
+        category: "Writing Help",
+        description: "Learn how to use Grammarly to improve grammar, clarity, and professional writing.",
+        steps: [
+          "Open Grammarly",
+          "Paste or type your text",
+          "Review suggestions",
+          "Fix grammar and tone",
+          "Use final clean version"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const guideKey = params.get("guide");
+
+    const guideTitle = document.getElementById("guideTitle");
+    const guideCategory = document.getElementById("guideCategory");
+    const guideDescription = document.getElementById("guideDescription");
+    const guideSteps = document.getElementById("guideSteps");
+
+    if (guideKey && guideData[guideKey]) {
+      const guide = guideData[guideKey];
+
+      guideTitle.textContent = guide.title;
+      guideCategory.textContent = guide.category;
+      guideDescription.textContent = guide.description;
+
+      guide.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.textContent = step;
+        li.style.marginBottom = "8px";
+        guideSteps.appendChild(li);
+      });
+    } else {
+      guideTitle.textContent = "Guide Not Found";
+      guideCategory.textContent = "Unknown Category";
+      guideDescription.textContent = "No guide available.";
+    }
+  </script>
+
+</body>
+</html>

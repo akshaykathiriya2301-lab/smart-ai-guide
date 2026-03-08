@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tool Details - Smart AI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html" class="active">AI Tools</a>
+        <a href="online-earning.html">Online Earning</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>TOOL DETAILS</p>
+        <h2 id="toolTitle">AI Tool Details</h2>
+        <div class="sub" id="toolCategory">Category</div>
+      </div>
+
+      <div class="contact-box">
+        <h3 style="margin-bottom:15px;">About this tool</h3>
+        <p id="toolDescription" style="color:#94a3b8; margin-bottom:20px;">
+          Tool description will appear here.
+        </p>
+
+        <h3 style="margin-bottom:15px;">Best Use Cases</h3>
+        <ul id="toolUses" style="color:#94a3b8; margin-left:20px; margin-bottom:25px;"></ul>
+
+        <h3 style="margin-bottom:15px;">Why use this tool?</h3>
+        <p id="toolWhy" style="color:#94a3b8; margin-bottom:25px;">
+          Tool benefits will appear here.
+        </p>
+
+        <div class="btn-group">
+          <a href="ai-tools.html" class="btn btn-secondary">Back to AI Tools</a>
+          <a href="contact.html" class="btn btn-primary">Get Help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="ai-tools.html">AI Tools</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toolsData = {
+      chatgpt: {
+        title: "ChatGPT",
+        category: "Writing & Ideas",
+        description: "ChatGPT is useful for writing, brainstorming, summaries, study help, coding help, and question answering.",
+        why: "It saves time, improves idea generation, and helps users learn or work faster.",
+        uses: [
+          "Content writing",
+          "Blog ideas",
+          "Study explanations",
+          "Code help",
+          "Business ideas"
+        ]
+      },
+      canva: {
+        title: "Canva AI",
+        category: "Design",
+        description: "Canva AI helps create social media posts, thumbnails, presentations, logos, and design content quickly.",
+        why: "It makes design easy for beginners and saves time in creating visual content.",
+        uses: [
+          "Instagram posts",
+          "Presentation design",
+          "Thumbnail making",
+          "Logo design",
+          "Poster creation"
+        ]
+      },
+      gemini: {
+        title: "Gemini",
+        category: "Research",
+        description: "Gemini is useful for research, topic understanding, idea generation, and fast information support.",
+        why: "It helps users understand topics quickly and improves research productivity.",
+        uses: [
+          "Research work",
+          "Topic ideas",
+          "Quick learning",
+          "Project support",
+          "Question solving"
+        ]
+      },
+      copilot: {
+        title: "GitHub Copilot",
+        category: "Coding",
+        description: "GitHub Copilot helps developers write code faster with suggestions and smart programming support.",
+        why: "It improves coding speed and helps developers reduce repetitive work.",
+        uses: [
+          "Code suggestions",
+          "Bug fixing help",
+          "Project coding",
+          "Learning programming",
+          "Developer productivity"
+        ]
+      },
+      notion: {
+        title: "Notion AI",
+        category: "Productivity",
+        description: "Notion AI helps with summaries, notes, planning, organization, and better workflow management.",
+        why: "It keeps work organized and helps users manage tasks and ideas efficiently.",
+        uses: [
+          "Task planning",
+          "Notes summary",
+          "Idea organization",
+          "Daily workflow",
+          "Project planning"
+        ]
+      },
+      grammarly: {
+        title: "Grammarly",
+        category: "Writing Help",
+        description: "Grammarly improves grammar, spelling, sentence clarity, tone, and professional writing quality.",
+        why: "It helps create clean, correct, and professional writing with less effort.",
+        uses: [
+          "Grammar correction",
+          "Email writing",
+          "Professional writing",
+          "Sentence improvement",
+          "Clarity enhancement"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const toolKey = params.get("tool");
+
+    const toolTitle = document.getElementById("toolTitle");
+    const toolCategory = document.getElementById("toolCategory");
+    const toolDescription = document.getElementById("toolDescription");
+    const toolUses = document.getElementById("toolUses");
+    const toolWhy = document.getElementById("toolWhy");
+
+    if (toolKey && toolsData[toolKey]) {
+      const tool = toolsData[toolKey];
+
+      toolTitle.textContent = tool.title;
+      toolCategory.textContent = tool.category;
+      toolDescription.textContent = tool.description;
+      toolWhy.textContent = tool.why;
+
+      tool.uses.forEach(use => {
+        const li = document.createElement("li");
+        li.textContent = use;
+        li.style.marginBottom = "8px";
+        toolUses.appendChild(li);
+      });
+    } else {
+      toolTitle.textContent = "Tool Not Found";
+      toolCategory.textContent = "Unknown Category";
+      toolDescription.textContent = "No details available for this tool.";
+      toolWhy.textContent = "Please go back and choose a valid tool.";
+    }
+  </script>
+
+</body>
+</html>

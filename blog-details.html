@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Details - Smart AI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html">AI Tools</a>
+        <a href="online-earning.html" class="active">Online Earning</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>BLOG DETAILS</p>
+        <h2 id="blogTitle">Blog Title</h2>
+        <div class="sub" id="blogCategory">Blog Category</div>
+      </div>
+
+      <div class="contact-box">
+        <h3 style="margin-bottom:15px;">Blog Overview</h3>
+        <p id="blogDescription" style="color:#94a3b8; margin-bottom:20px;">
+          Blog description will appear here.
+        </p>
+
+        <h3 style="margin-bottom:15px;">Main Points</h3>
+        <ul id="blogPoints" style="color:#94a3b8; margin-left:20px; margin-bottom:25px;"></ul>
+
+        <div class="btn-group">
+          <a href="online-earning.html" class="btn btn-secondary">Back to Online Earning</a>
+          <a href="blog.html" class="btn btn-primary">Open Blog Page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="blog.html">Blog</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const blogData = {
+      blogging: {
+        title: "Blogging Income Guide",
+        category: "Content Based Income",
+        description: "Blogging is a strong online earning method where you create useful articles and earn through ads, affiliate links, and sponsorships.",
+        points: [
+          "Choose one niche",
+          "Create useful content",
+          "Post regularly",
+          "Bring traffic from search or social media",
+          "Monetize with ads and affiliate links"
+        ]
+      },
+      "content-creation": {
+        title: "Content Creation Guide",
+        category: "Audience Based Income",
+        description: "Content creation means building an audience on platforms like Instagram, YouTube, or blogs and turning that audience into income.",
+        points: [
+          "Choose a platform",
+          "Create content consistently",
+          "Build trust with audience",
+          "Use brand deals or affiliate links",
+          "Sell products or services later"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const postKey = params.get("post");
+
+    const blogTitle = document.getElementById("blogTitle");
+    const blogCategory = document.getElementById("blogCategory");
+    const blogDescription = document.getElementById("blogDescription");
+    const blogPoints = document.getElementById("blogPoints");
+
+    if (postKey && blogData[postKey]) {
+      const post = blogData[postKey];
+
+      blogTitle.textContent = post.title;
+      blogCategory.textContent = post.category;
+      blogDescription.textContent = post.description;
+
+      post.points.forEach(point => {
+        const li = document.createElement("li");
+        li.textContent = point;
+        li.style.marginBottom = "8px";
+        blogPoints.appendChild(li);
+      });
+    } else {
+      blogTitle.textContent = "Blog Not Found";
+      blogCategory.textContent = "Unknown Category";
+      blogDescription.textContent = "No blog details available.";
+    }
+  </script>
+
+</body>
+</html>

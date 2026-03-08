@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart AI Guide - Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Smart AI Guide</h1>
+        <p>Learn • Build • Earn</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-tools.html">AI Tools</a>
+        <a href="online-earning.html">Online Earning</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p>CONTACT</p>
+        <h2>Get in <span>Touch</span></h2>
+        <div class="sub">
+          This form now shows a working success message. Later you can connect it to Formspree or backend.
+        </div>
+      </div>
+
+      <div class="cards" style="grid-template-columns: 1.2fr 0.8fr;">
+        <div class="contact-box">
+          <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p id="successMessage" style="display:none; color:#34d399; margin-top:10px; font-weight:bold;">
+              Message sent successfully!
+            </p>
+          </form>
+        </div>
+
+        <div class="info-box">
+          <h3 style="margin-bottom:15px;">Contact Info</h3>
+          <p style="color:#94a3b8; margin-bottom:10px;">Email: support@smartaiguide.com</p>
+          <p style="color:#94a3b8; margin-bottom:10px;">Website: Smart AI Guide</p>
+          <p style="color:#94a3b8; margin-bottom:20px;">Location: Online Platform</p>
+
+          <div class="btn-group">
+            <a href="index.html" class="btn btn-secondary">Back Home</a>
+            <a href="about.html" class="btn btn-primary">About Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Smart AI Guide. All rights reserved.</p>
+      <div>
+        <a href="index.html">Home</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      successMessage.style.display = "block";
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
