@@ -55,6 +55,7 @@ header {
 .nav-links {
   display: flex;
   gap: 22px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -117,6 +118,8 @@ header {
   border-radius: 14px;
   font-weight: bold;
   transition: 0.3s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -131,6 +134,7 @@ header {
 .btn-secondary {
   border: 1px solid rgba(255,255,255,0.15);
   color: white;
+  background: transparent;
 }
 
 .btn-secondary:hover {
@@ -282,6 +286,10 @@ input:focus, textarea:focus {
   border-color: #22d3ee;
 }
 
+ul li {
+  margin-bottom: 8px;
+}
+
 footer {
   border-top: 1px solid rgba(255,255,255,0.1);
   margin-top: 40px;
@@ -326,4 +334,64 @@ footer {
   .section-title h2 {
     font-size: 28px;
   }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: rgba(34, 211, 238, 0.15);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22d3ee;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.12);
+}
+
+.logo-text h1 {
+  font-size: 24px;
+  color: #22d3ee;
+  margin: 0;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  fill: white;
+  flex-shrink: 0;
 }
